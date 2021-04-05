@@ -1,6 +1,5 @@
 ---
 layout: post
-layout: post
 title: "Dollar Cost Averaging"
 date: "2004-08-06"
 categories: 
