@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Canon EOS-M - Poor Man's RX1"
 date: "2014-11-11"
 categories: 

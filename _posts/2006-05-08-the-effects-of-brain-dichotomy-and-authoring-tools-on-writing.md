@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Notepad Vs Word Processor & Left Brain Vs Right Brain."
 date: "2006-05-08"
 categories: 

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Windows + Freeware = Bliss!!"
 date: "2004-08-10"
 categories: 

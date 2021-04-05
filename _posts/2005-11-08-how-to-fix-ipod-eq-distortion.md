@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "How to fix iPod Eq distortion."
 date: "2005-11-08"
 categories: 

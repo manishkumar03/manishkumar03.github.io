@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Why iTunes worked and why Yahoo music would work too!"
 date: "2005-05-12"
 categories: 

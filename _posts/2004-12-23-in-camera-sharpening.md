@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "In-camera sharpening"
 date: "2004-12-23"
 categories: 

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Our world as a MMOG"
 date: "2004-08-13"
 categories: 

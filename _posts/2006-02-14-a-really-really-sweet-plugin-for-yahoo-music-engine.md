@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "A really sweet plugin for Yahoo Music Engine."
 date: "2006-02-14"
 categories: 

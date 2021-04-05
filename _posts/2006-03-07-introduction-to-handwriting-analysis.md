@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Introduction to Handwriting Analysis."
 date: "2006-03-07"
 categories: 

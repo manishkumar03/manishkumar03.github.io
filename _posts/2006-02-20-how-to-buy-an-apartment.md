@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "How to buy an apartment in Bangalore."
 date: "2006-02-20"
 categories: 

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "How to make Nikon Capture NX2 run faster."
 date: "2009-02-25"
 categories: 

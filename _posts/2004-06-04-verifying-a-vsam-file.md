@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Verifying a VSAM file"
 date: "2004-06-04"
 categories: 

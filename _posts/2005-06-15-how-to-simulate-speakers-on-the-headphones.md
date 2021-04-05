@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "How to simulate speakers on the headphones."
 date: "2005-06-15"
 categories: 

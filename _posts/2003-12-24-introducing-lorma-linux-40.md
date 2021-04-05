@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Introducing Lorma Linux 4.0"
 date: "2003-12-24"
 categories: 

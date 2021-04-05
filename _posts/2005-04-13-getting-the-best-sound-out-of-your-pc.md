@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Getting the best sound out of your PC."
 date: "2005-04-13"
 categories: 

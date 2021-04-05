@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Kernel Streaming with iTunes."
 date: "2006-05-23"
 categories: 

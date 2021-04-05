@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "A Comparison of PDS and PDSE"
 date: "2004-06-18"
 categories: 
