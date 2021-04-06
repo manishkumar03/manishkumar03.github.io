@@ -41,7 +41,7 @@ You can see HMAC in action at: <https://www.freeformatter.com/hmac-generator.htm
 ## Sequence of events
 To make this discussion more concrete, let’s assume that a user named Jane has downloaded a third-party twitter client named LittleBirdie.
 
-### Initial setup:
+### Initial setup: Registering the App
 Twitter doesn’t want just any random app to be making reqeusts on a user’s behalf. They have to know who is accessing their API so that they can restrict access if an app doesn’t behave responsibly. So the first thing that LittleBirdie developer has to do is register their app on the Twitter developer dashboard. On successful registration, Twitter will provide an `oauth_consumer_key` and an `oauth_consumer_secret` to the app developer. It’s this `oauth_consumer_secret` that will be used as the secret key to compute the hash.
 
 **Sample `oauth_consumer_key`:** "ftgyFJliiwxBt67213ksEewxU"
@@ -53,40 +53,51 @@ Twitter doesn’t want just any random app to be making reqeusts on a user’s b
 
 Now for the OAuth 1.0a flow
 
-### First step:
+### First step: Temporary Credentials Acquisition
 Jane has installed LittleBirdie on her phone. When she runs it for the first time, the app displays a screen with a `Login with Twitter` button. When Jane clicks that button, the app displays a webpage asking Jane to authorize LittleBirdie to access her Twitter account. But before the app can get to that webpage, it has to request Twitter to allow it to display that page. It needs what’s called a `request_token` and that’s where the hashing comes in. The message to be hashed in this case is the `oauth_consumer_key` and the secret to be used for hashing is `oauth_consumer_secret`. So the hashing parameters are:
 
 **message:** `oauth_consumer_key`
 **secret key:** `oauth_consumer_secret`
 
-The Twitter endpoint that provides this `request_token` is appropriately named `https://api.twitter.com/oauth/request_token`. LittleBirdie makes a `POST` request with the hashed `oauth_consumer_key` and if everything checks out, it receives `oauth_token` and `oauth_token_secret`. Ideally these should have been called `request_token` and `request_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them.
+The hashed message will be sent as OAuth headers in the request. The Twitter endpoint that provides this `request_token` is appropriately named `https://api.twitter.com/oauth/request_token`. LittleBirdie makes a `POST` request with the hashed `oauth_consumer_key` and if everything checks out, it receives `oauth_token` and `oauth_token_secret`. Ideally these should have been called `request_token` and `request_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them. These tokens are short-lived (typically 24 hours) and cannot be used for anything else except to request authorization from the user.
 
 The `oauth_consumer_key` and `oauth_consumer_secret` for an app are direct equivalents to username and password for human users. It’s as if the app itself is signing in to Twitter as the first step. This step makes sure that only authorized apps can ask for `request_token`.
 
 **Sample response:**
-`oauth_token`=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&`oauth_token_secret`=veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI&`oauth_callback_confirmed`=true
+```
+oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&oauth_token_secret=veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI&oauth_callback_confirmed=true
+```
 
-### Second step:
-Now that LittleBirdie has got the `request_token`, it creates a URL using this token and launches the web browser. If everything checks out, Twitter will display a dialog asking Jane to authorize LittleBirdie so that it can access her Twitter account. The page also displays what kind of access (read-only/read-write etc) the app is requesting. If Jane authorizes LittleBirdie, it will receive the same `request_token` back along with an `oauth_verifier`.
+> The hashing process has been simplified in this article to focus more on the overall flow. To see the actual OAuth headers and other implementation details, please refer to Twitter's API documentation.
+
+### Second step: User Authorization
+Now that LittleBirdie has got the `request_token`, it creates a URL using this token and launches the web browser. If everything checks out, the webpage will display a dialog asking Jane to authorize LittleBirdie so that it can access her Twitter account. The page also displays what kind of access (read-only, read-write etc.) the app is requesting. If Jane authorizes LittleBirdie, it will receive the same `request_token` back along with an `oauth_verifier`.
 
 Since this step is browser-based, it can not use hash-based OAuth headers which necessitates one more step for security reasons (the third step detailed below).
 
 **Sample URL:**
-https://api.twitter.com/oauth/authorize?`oauth_token`=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
+```
+https://api.twitter.com/oauth/authorize?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
+```
 
 **Sample Response:**
-https://yourCallbackUrl.com?`oauth_token`=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&`oauth_verifier`=uw7NjWHT6OJ1MpJOXsHfNxoAhPK
+```
+oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&oauth_verifier=uw7NjWHT6OJ1MpJOXsHfNxoAhPK
+```
 
-### Third step:
-LittleBirdie can now finally request what it wanted all along, i.e. access to Jane’s account. This time, the hashing parameters are:
+### Third step: Token Exchange
+LittleBirdie can now finally request what it wanted all along, i.e. access to Jane’s account. This is done by obtaining an `access_token` and an `access_token_secret`. These tokens are permanent and will remain valid until Jane or Twitter decide to cut off LittleBirdie's access. All the tokens that were received prior to this step were temporary in nature. If the API call being made in this step is successful, all the earlier tokens will be invalidated by Twitter and can no longer be used.
 
+The hashing parameters for this call are:
 **message:** `oauth_consumer_key` + `request_token` and `oauth_verifier` received in step 2 above
 **secret key:** `oauth_consumer_secret` + `request_token_secret` received in step 1 above
 
 The app now makes a POST request to `https://api.twitter.com/oauth/access_token` and if everything checks out, it receives a final set of `oauth_token` and `oauth_token_secret`. Ideally these should have been called `access_token` and `access_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them. It also receives the user id and screen name for Jane.
 
 **Sample response:**
-`oauth_token`=7588892kagSNqWge8gB1WwE3plnFsJHAZVfxWD7Vb57p0b4&`oauth_token_secret`=9veKfYqSryyeKDWz4ebtY3o5ogNLG11WJuZBc9fQrQo
+```
+oauth_token=7588892kagSNqWge8gB1WwE3plnFsJHAZVfxWD7Vb57p0b4&oauth_token_secret=9veKfYqSryyeKDWz4ebtY3o5ogNLG11WJuZBc9fQrQo
+```
 
 ### Final step
 LittleBirdie is now all set to interact with Twitter. Say Jane wants to post a tweet. The hashing parameters are:
