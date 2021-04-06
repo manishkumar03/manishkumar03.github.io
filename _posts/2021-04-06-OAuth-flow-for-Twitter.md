@@ -71,13 +71,11 @@ Now that LittleBirdie has got the `request_token`, it creates a URL using this t
 
 Since this step is browser-based, it can not use hash-based OAuth headers which necessitates one more step for security reasons (the third step detailed below).
 
-**Sample URL:** 
+**Sample URL:**
 https://api.twitter.com/oauth/authorize?`oauth_token`=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
 
-**Sample Response:** 
-https://yourCallbackUrl.com?
-`oauth_token`=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&
-`oauth_verifier`=uw7NjWHT6OJ1MpJOXsHfNxoAhPKpgI8BlYDhxEjIBY
+**Sample Response:**
+https://yourCallbackUrl.com?`oauth_token`=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&`oauth_verifier`=uw7NjWHT6OJ1MpJOXsHfNxoAhPK
 
 ### Third step:
 LittleBirdie can now finally request what it wanted all along, i.e. access to Jane’s account. This time, the hashing parameters are:

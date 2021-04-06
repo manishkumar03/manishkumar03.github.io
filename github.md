@@ -1,5 +1,5 @@
 ---
 title: GitHub
-redirect_to:
-  - http://www.github.com/aterenin/minima-reboot/
 ---
+
+You can find me at: [manishkumar03](https://github.com/manishkumar03)
