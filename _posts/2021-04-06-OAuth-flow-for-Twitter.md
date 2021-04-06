@@ -44,8 +44,8 @@ To make this discussion more concrete, let’s assume that a user named Jane has
 ### Initial setup: Registering the App
 Twitter doesn’t want just any random app to be making reqeusts on a user’s behalf. They have to know who is accessing their API so that they can restrict access if an app doesn’t behave responsibly. So the first thing that LittleBirdie developer has to do is register their app on the Twitter developer dashboard. On successful registration, Twitter will provide an `oauth_consumer_key` and an `oauth_consumer_secret` to the app developer. It’s this `oauth_consumer_secret` that will be used as the secret key to compute the hash.
 
-**Sample `oauth_consumer_key`:** "ftgyFJliiwxBt67213ksEewxU"
-**Sample `oauth_consumer_secret`:** "BpWuio7pG7Q367DxEYpyKrMK3beVzBHYuX9e9m5IBkDCgGBUaw"
+**Sample oauth_consumer_key:** "ftgyFJliiwxBt67213ksEewxU"
+**Sample oauth_consumer_secret:** "BpWuio7pG7Q367DxEYpyKrMK3beVzBHYuX9e9m5IBkDCgGBUaw"
 
 ***Sidenote -*** The consumer key and secret are known by various other names as well, depending on the vendor. Some of the common names are:
 >`oauth_consumer_key` === App Key === API Key === Consumer API Key === Consumer Key === Customer Key
