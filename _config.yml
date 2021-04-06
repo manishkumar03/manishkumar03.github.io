@@ -27,10 +27,6 @@ footer_icons:
   url: https://twitter.com/BansalToronto
   icon: icon-twitter.svg
 
-social_links:
-  twitter: jekyllrb
-  github:  jekyll
-
 paginate: 5
 
 markdown: kramdown
