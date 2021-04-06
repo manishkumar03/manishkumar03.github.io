@@ -101,7 +101,7 @@ These tokens are permanent and will remain valid until Jane or Twitter decide to
 oauth_token=7588892kagSNqWge8gB1WwE3plnFsJHAZVfxWD7Vb57p0b4&oauth_token_secret=9veKfYqSryyeKDWz4ebtY3o5ogNLG11WJuZBc9fQrQo
 ```
 
-### Final step
+### Final step: Interact with Twitter
 LittleBirdie is now all set to interact with Twitter. Say Jane wants to post a tweet. The hashing parameters are:
 
 **message:** `oauth_consumer_key` + `access_token` received in step 3 above
