@@ -1,4 +1,4 @@
-title: Let's refactor the world
+title: Hopefully useful articles about programming by Manish Kumar
 author: Manish Kumar
 email: manish.bansal@gmail.com
 description: >
@@ -23,6 +23,13 @@ footer_icons:
 - username: manishkumar03
   url: https://github.com/manishkumar03
   icon: icon-github.svg
+- username: BansalToronto
+  url: https://twitter.com/BansalToronto
+  icon: icon-twitter.svg
+
+social_links:
+  twitter: jekyllrb
+  github:  jekyll
 
 paginate: 5
 
