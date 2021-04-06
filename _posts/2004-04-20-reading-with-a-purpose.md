@@ -2,7 +2,7 @@
 layout: post
 title: "Reading with a Purpose!!!"
 date: "2004-04-20"
-categories: 
+tags: 
   - "opinions"
 ---
 

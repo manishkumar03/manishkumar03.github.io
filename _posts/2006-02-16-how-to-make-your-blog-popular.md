@@ -2,7 +2,7 @@
 layout: post
 title: "How to make your blog popular?"
 date: "2006-02-16"
-categories: 
+tags: 
   - "opinions"
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "What is a Parametric Equalizer and how to use it on Rio Karma."
 date: "2005-05-25"
-categories: 
+tags: 
   - "audio"
 ---
 

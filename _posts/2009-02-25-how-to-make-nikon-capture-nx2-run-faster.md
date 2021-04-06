@@ -2,13 +2,9 @@
 layout: post
 title: "How to make Nikon Capture NX2 run faster."
 date: "2009-02-25"
-categories: 
+tags: 
   - "photography"
   - "software"
-tags: 
-  - "capture-nx"
-  - "capture-nx2"
-  - "nikon"
 ---
 
 To say that Nikon Capture NX (or Capture Nx2) is slow would be an understatement. The reason for its slowness is that it ships with older versions of certain Windows files which it uses. So all we need to do to make it run faster is to install the latest and greatest versions of these files. It really is that simple and it makes a significant difference. But why Nikon doesn't document it or doesn't do it by default is beyond me.

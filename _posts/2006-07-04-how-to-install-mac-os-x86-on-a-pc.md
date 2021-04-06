@@ -2,7 +2,7 @@
 layout: post
 title: "How to install Mac OS x86 on a PC"
 date: "2006-07-04"
-categories: 
+tags: 
   - "apple"
 ---
 

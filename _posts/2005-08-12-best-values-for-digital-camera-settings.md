@@ -2,7 +2,7 @@
 layout: post
 title: "Best values for digital camera settings!"
 date: "2005-08-12"
-categories: 
+tags: 
   - "photography"
 ---
 

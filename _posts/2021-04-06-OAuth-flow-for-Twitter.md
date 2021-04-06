@@ -2,7 +2,7 @@
 layout: post
 title: "OAuth flow for Twitter"
 date: "2021-04-06"
-categories: 
+tags: 
   - "OAuth"
   - "Networking"
   - "Security"

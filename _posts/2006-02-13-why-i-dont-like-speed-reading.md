@@ -2,7 +2,7 @@
 layout: post
 title: "Why I don't like speed reading."
 date: "2006-02-13"
-categories: 
+tags: 
   - "opinions"
 ---
 

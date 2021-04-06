@@ -2,7 +2,7 @@
 layout: post
 title: "Making your DSLR show Linear Histogram"
 date: "2007-12-15"
-categories: 
+tags: 
   - "photography"
   - "software"
 ---

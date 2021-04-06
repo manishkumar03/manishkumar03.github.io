@@ -2,7 +2,7 @@
 layout: post
 title: "The ultimate Winamp setup guide!"
 date: "2005-07-22"
-categories: 
+tags: 
   - "audio"
 ---
 

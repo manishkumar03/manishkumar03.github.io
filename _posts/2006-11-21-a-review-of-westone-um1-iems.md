@@ -2,7 +2,7 @@
 layout: post
 title: "A review of Westone UM1 IEMs."
 date: "2006-11-21"
-categories: 
+tags: 
   - "audio"
 ---
 

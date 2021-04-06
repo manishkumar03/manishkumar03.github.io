@@ -2,7 +2,7 @@
 layout: post
 title: "How to fix gapless analysis problems in iTunes?"
 date: "2010-10-15"
-categories: 
+tags: 
   - "apple"
   - "audio"
   - "software"

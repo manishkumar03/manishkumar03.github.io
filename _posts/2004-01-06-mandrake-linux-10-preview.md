@@ -2,7 +2,7 @@
 layout: post
 title: "Mandrake Linux 10 Preview"
 date: "2004-01-06"
-categories: 
+tags: 
   - "linux"
   - "software"
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: "Get WinBackup for free."
 date: "2006-02-10"
-categories: 
+tags: 
   - "marketing"
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "How to rescan a folder in iTunes and keep song ratings."
 date: "2006-02-10"
-categories: 
+tags: 
   - "apple"
   - "audio"
 ---
