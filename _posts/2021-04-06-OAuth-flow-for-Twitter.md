@@ -86,13 +86,15 @@ oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&oauth_verifier=uw7NjWHT6
 ```
 
 ### Third step: Token Exchange
-LittleBirdie can now finally request what it wanted all along, i.e. access to Jane’s account. This is done by obtaining an `access_token` and an `access_token_secret`. These tokens are permanent and will remain valid until Jane or Twitter decide to cut off LittleBirdie's access. All the tokens that were received prior to this step were temporary in nature. If the API call being made in this step is successful, all the earlier tokens will be invalidated by Twitter and can no longer be used.
+LittleBirdie can now finally request what it wanted all along, i.e. access to Jane’s account. This is done by exchanging the temporary `request_token` for a permanent `access_token`.
 
 The hashing parameters for this call are:
 **message:** `oauth_consumer_key` + `request_token` and `oauth_verifier` received in step 2 above
 **secret key:** `oauth_consumer_secret` + `request_token_secret` received in step 1 above
 
-The app now makes a POST request to `https://api.twitter.com/oauth/access_token` and if everything checks out, it receives a final set of `oauth_token` and `oauth_token_secret`. Ideally these should have been called `access_token` and `access_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them. It also receives the user id and screen name for Jane.
+The app now makes a `POST` request to `https://api.twitter.com/oauth/access_token` and if everything checks out, it receives a final set of `oauth_token` and `oauth_token_secret`. Ideally these should have been called `access_token` and `access_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them. It also receives the user id and screen name for Jane.
+
+These tokens are permanent and will remain valid until Jane or Twitter decide to cut off LittleBirdie's access. All the tokens that were received prior to this step were temporary in nature. If the API call being made in this step is successful, all the earlier tokens will be invalidated by Twitter and can no longer be used.
 
 **Sample response:**
 ```
