@@ -59,7 +59,7 @@ Jane has installed LittleBirdie on her phone. When she runs it for the first tim
 **message:** `oauth_consumer_key`
 **secret key:** `oauth_consumer_secret`
 
-The Twitter endpoint that provides this `request_token` is appropriately named `https://api.twitter.com/oauth/request\_token`. LittleBirdie makes a `POST` request with the hashed `oauth_consumer_key` and if everything checks out, it receives `oauth_token` and `oauth_token_secret`. Ideally these should have been called `request_token` and `request_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them. 
+The Twitter endpoint that provides this `request_token` is appropriately named `https://api.twitter.com/oauth/request_token`. LittleBirdie makes a `POST` request with the hashed `oauth_consumer_key` and if everything checks out, it receives `oauth_token` and `oauth_token_secret`. Ideally these should have been called `request_token` and `request_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them.
 
 The `oauth_consumer_key` and `oauth_consumer_secret` for an app are direct equivalents to username and password for human users. It’s as if the app itself is signing in to Twitter as the first step. This step makes sure that only authorized apps can ask for `request_token`.
 
@@ -83,7 +83,7 @@ LittleBirdie can now finally request what it wanted all along, i.e. access to Ja
 **message:** `oauth_consumer_key` + `request_token` and `oauth_verifier` received in step 2 above
 **secret key:** `oauth_consumer_secret` + `request_token_secret` received in step 1 above
 
-The app now makes a POST request to `https://api.twitter.com/oauth/access\_token` and if everything checks out, it receives a final set of `oauth_token` and `oauth_token_secret`. Ideally these should have been called `access_token` and `access_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them. It also receives the user id and screen name for Jane.
+The app now makes a POST request to `https://api.twitter.com/oauth/access_token` and if everything checks out, it receives a final set of `oauth_token` and `oauth_token_secret`. Ideally these should have been called `access_token` and `access_token_secret` to make their intent clear. In fact, these are the names the app developers generally use to store them. It also receives the user id and screen name for Jane.
 
 **Sample response:**
 `oauth_token`=7588892kagSNqWge8gB1WwE3plnFsJHAZVfxWD7Vb57p0b4&`oauth_token_secret`=9veKfYqSryyeKDWz4ebtY3o5ogNLG11WJuZBc9fQrQo
@@ -95,4 +95,4 @@ LittleBirdie is now all set to interact with Twitter. Say Jane wants to post a t
 **secret key:** `oauth_consumer_secret` + `access_token_secret` received in step 3 above
 **Sample URL:** <https://api.twitter.com/1.1/statuses/update.json?status=hello>
 
-Note that every time Twitter API is accessed, the secret key used to hash the message contains `oauth_consumer_secret` as a component. This makes sure that even if an attacker could get hold of `access_token ` or `access_token_secret ` etc, they cannot use it until they also have `oauth_consumer_secret`. That’s why it’s critically important to keep it safe.
+Note that every time Twitter API is accessed, the secret key used to hash the message contains `oauth_consumer_secret` as a component. This makes sure that even if an attacker could get hold of `access_token` or `access_token_secret` etc, they cannot use it until they also have `oauth_consumer_secret`. That’s why it’s critically important to keep it safe.
