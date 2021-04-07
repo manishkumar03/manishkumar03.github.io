@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OAuth flow for Twitter"
+title: "OAuth 1.0a flow for Twitter"
 date: "2021-04-06"
 tags: 
   - "OAuth"
@@ -16,7 +16,7 @@ The primary reason that sites like Twitter, Facebook, Github etc use OAuth is to
 Twitter uses OAuth 1.0a which is based around cryptographic hash function and does not assume a secure connection whereas the newer and more common OAuth 2.0 standard relies on TLS layer encryption for data security. This article is about OAuth 1.0a.
 
 ## How does a cryptographic hash function make data secure
-OAuth 1.0a protocol does not assume the network connection to be secure; instead, it relies on a cryptographic hash function (HMAC-SHA1) to verify the data integrity and authenticity of a message. Note that the data isn’t hidden from attackers; it just can’t be modified without the recepient knowing about it.
+OAuth 1.0a protocol does not assume the network connection to be secure; instead, it relies on a cryptographic hash function (HMAC-SHA1) to verify the data integrity and authenticity of a message. Note that the data isn’t hidden from attackers; it just can’t be modified without the recipient knowing about it.
 
 Let’s see how it works in practice using our old friends [Alice and Bob](https://en.wikipedia.org/wiki/Alice_and_Bob).
 
@@ -42,7 +42,7 @@ You can see HMAC in action at: <https://www.freeformatter.com/hmac-generator.htm
 To make this discussion more concrete, let’s assume that a user named Jane has downloaded a third-party twitter client named LittleBirdie.
 
 ### Initial setup: Registering the App
-Twitter doesn’t want just any random app to be making reqeusts on a user’s behalf. They have to know who is accessing their API so that they can restrict access if an app doesn’t behave responsibly. So the first thing that LittleBirdie developer has to do is register their app on the Twitter developer dashboard. On successful registration, Twitter will provide an `oauth_consumer_key` and an `oauth_consumer_secret` to the app developer. It’s this `oauth_consumer_secret` that will be used as the secret key to compute the hash.
+Twitter doesn’t want just any random app to be making requests on a user’s behalf. They have to know who is accessing their API so that they can restrict access if an app doesn’t behave responsibly. So the first thing that LittleBirdie developer has to do is register their app on the Twitter developer dashboard. On successful registration, Twitter will provide an `oauth_consumer_key` and an `oauth_consumer_secret` to the app developer. It’s this `oauth_consumer_secret` that will be used as the secret key to compute the hash.
 
 **Sample oauth_consumer_key:** "ftgyFJliiwxBt67213ksEewxU"
 **Sample oauth_consumer_secret:** "BpWuio7pG7Q367DxEYpyKrMK3beVzBHYuX9e9m5IBkDCgGBUaw"
